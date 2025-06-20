@@ -1,8 +1,12 @@
-
 services:
   - type: web
     name: haystack-search-app
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
+    envVars:
+      - key: GRADIO_SERVER_NAME
+        value: "0.0.0.0"
+      - key: GRADIO_SERVER_PORT
+        value: "$PORT"
     plan: free
